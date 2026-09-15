@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { CATEGORIES, getProductsByCategory } from '../../data/products.js';
+
+export function getStaticPaths() {
+  return CATEGORIES.map(category => ({
+    params: { slug: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const products = getProductsByCategory(category.slug);
+---
+<BaseLayout title={`${category.name} — Ahmad Emporium`} description={category.blurb}>
+
+  <div class="container breadcrumb">
+    <a href="/">Home</a><span class="sep">/</span>
+    <a href="/#collections">Signature Heritage Weaves</a><span class="sep">/</span>
+    <span class="current">{category.name}</span>
+  </div>
+
+  <div class="pd-section">
+    <div class="container">
+      <div class="cat-banner">
+        <div class="cat-banner-media">
+          <img src={category.image} alt={category.name} />
+        </div>
+        <div class="cat-banner-info">
+          <span class="pd-category">{category.badge}</span>
+          <h1>{category.name}</h1>
+          <p class="pd-tagline">{category.blurb}</p>
+          <a href="/#reserve" class="pd-visit-link">Prefer to see it in person? Book a home visit &rarr;</a>
+        </div>
+      </div>
+
+      {products.length > 0 ? (
+        <div class="product-grid">
+          {products.map(product => <ProductCard product={product} />)}
+        </div>
+      ) : (
+        <div class="cat-empty">
+          <h3>New Pieces Arriving in This Collection Soon</h3>
+          <p>We're still photographing this collection for the site. Message us on WhatsApp and we'll show you what's available in {category.name} right away.</p>
+          <a
+            class="btn btn-primary whatsapp-btn"
+            data-product={`${category.name} Collection`}
+            data-extra={`I'd like to see what's available in the ${category.name} collection.`}
+            href="#"
+            target="_blank"
+            rel="noopener"
+          ><svg><use href="#icon-whatsapp"/></svg> Ask on WhatsApp</a>
+        </div>
+      )}
+    </div>
+  </div>
+
+</BaseLayout>

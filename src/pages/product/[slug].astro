@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { PRODUCTS, getRelatedProducts } from '../../data/products.js';
+
+export function getStaticPaths() {
+  return PRODUCTS.map(product => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const related = getRelatedProducts(product, 4);
+const mainMediaStyle = product.image
+  ? `background-image:url('${product.image}');background-size:cover;background-position:center;`
+  : undefined;
+---
+<BaseLayout title={`${product.name} — Ahmad Emporium`} description={product.tagline}>
+
+  <div class="container breadcrumb">
+    <a href="/">Home</a><span class="sep">/</span>
+    <a href={`/category/${product.categorySlug}/`}>{product.category}</a><span class="sep">/</span>
+    <span class="current">{product.name}</span>
+  </div>
+
+  <div class="pd-section">
+    <div class="container">
+      <div class="pd-layout">
+        <div class="pd-gallery">
+          <div class={`pd-gallery-main ${product.swatch}`} style={mainMediaStyle}>
+            {!product.image && <svg class="swatch-icon"><use href="#icon-hanger"/></svg>}
+          </div>
+        </div>
+
+        <div class="pd-info">
+          <span class="pd-category">{product.category}</span>
+          <h1>{product.name}</h1>
+          <div class="pd-badge-row">
+            <span class={`product-badge ${product.badgeClass || ''}`}>{product.badge}</span>
+          </div>
+          <div class="pd-price">
+            <span class="price-now">{product.priceNow}</span>
+            {product.priceOld && <span class="price-old">{product.priceOld}</span>}
+          </div>
+          <p class="pd-tagline">{product.tagline}</p>
+
+          <div class="pd-cta">
+            <a
+              class="btn btn-primary btn-lg whatsapp-btn"
+              data-product={product.name}
+              data-price={product.priceNow}
+              href="#"
+              target="_blank"
+              rel="noopener"
+            ><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+            <a href="/#reserve" class="pd-visit-link">Prefer to see it in person? Book a home visit &rarr;</a>
+          </div>
+
+          <div class="pd-trust-row">
+            <div><svg><use href="#icon-badge"/></svg> Handcrafted Authenticity</div>
+            <div><svg><use href="#icon-truck"/></svg> Home Delivery Available</div>
+            <div><svg><use href="#icon-scissors"/></svg> On-Site Tailor Fitting</div>
+          </div>
+
+          <table class="pd-meta-table">
+            <tbody>
+              {Object.entries(product.details).map(([key, value]) => (
+                <tr><td>{key}</td><td>{value}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pd-tabs">
+        <div class="pd-tab-nav">
+          <button class="pd-tab-btn active" data-tab="tabDescription">Description</button>
+          <button class="pd-tab-btn" data-tab="tabHighlights">Highlights</button>
+          <button class="pd-tab-btn" data-tab="tabDelivery">Delivery &amp; Visits</button>
+        </div>
+
+        <div class="pd-tab-panel active" id="tabDescription">
+          <p>{product.description}</p>
+        </div>
+
+        <div class="pd-tab-panel" id="tabHighlights">
+          <ul class="pd-highlights">
+            {product.highlights.map(h => (
+              <li><svg><use href="#icon-check"/></svg> {h}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="pd-tab-panel" id="tabDelivery">
+          <p>We don't run an online checkout — every piece is confirmed personally over WhatsApp so we can check size, occasion and any customisation before it leaves our atelier.</p>
+          <p>Prefer to see it in person? Reserve our mobile boutique and we'll bring this piece (and similar options in your size) directly to your home, along with our on-site master tailor for a same-visit fitting.</p>
+        </div>
+      </div>
+
+      {related.length > 0 && (
+        <div class="related-section">
+          <h2 class="center">You May Also Like</h2>
+          <div class="product-grid">
+            {related.map(p => <ProductCard product={p} />)}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script>
+  import '../../scripts/product-page.js';
+</script>

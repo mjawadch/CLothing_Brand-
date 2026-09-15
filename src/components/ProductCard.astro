@@ -1,0 +1,30 @@
+---
+const { product } = Astro.props;
+const href = `/product/${product.slug}/`;
+const mediaStyle = product.image ? `background-image:url('${product.image}')` : undefined;
+---
+<article class="product-card" data-cat={product.categorySlug}>
+  <div class={`product-media ${product.swatch}`} style={mediaStyle}>
+    <a class="product-link" href={href} aria-label={`View ${product.name}`}>
+      <span class={`product-badge ${product.badgeClass || ''}`}>{product.badge}</span>
+      {!product.image && <svg class="swatch-icon"><use href="#icon-hanger"/></svg>}
+    </a>
+    <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+  </div>
+  <div class="product-info">
+    <h3><a href={href}>{product.name}</a></h3>
+    <p class="product-sub">{product.sub}</p>
+    <div class="product-price">
+      <span class="price-now">{product.priceNow}</span>
+      {product.priceOld && <span class="price-old">{product.priceOld}</span>}
+    </div>
+    <a
+      class="btn btn-primary btn-block btn-sm whatsapp-btn"
+      data-product={product.name}
+      data-price={product.priceNow}
+      href="#"
+      target="_blank"
+      rel="noopener"
+    ><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+  </div>
+</article>

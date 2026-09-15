@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { PRODUCTS, CATEGORIES } from '../data/products.js';
+---
+<BaseLayout title="Ahmad Emporium — Your Boutique. At Your Doorstep.">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><svg><use href="#icon-sun"/></svg> An Exclusive Doorstep Shopping Experience</p>
+      <h1>Your Boutique.<br><em>At Your Doorstep.</em></h1>
+      <p class="hero-lead">Explore handcrafted couture in the comfort of your home. Our mobile showroom brings the finest fabrics, silhouettes and styling expertise right to your door for an immersive shopping journey.</p>
+      <div class="hero-cta">
+        <a href="#reserve" class="btn btn-primary">Book a Home Visit</a>
+        <a href="#collections" class="btn btn-outline">Explore Online Catalogue</a>
+      </div>
+      <ul class="hero-stats">
+        <li><strong>500+</strong> Happy Clients</li>
+        <li><strong>50+</strong> Cities Covered</li>
+        <li><strong>Zero</strong> Obligation Visit</li>
+      </ul>
+    </div>
+    <div class="hero-media">
+      <img src="/images/hero.png" alt="Ahmad Emporium mobile boutique van with stylist presenting a drape to a client at a private residence">
+      <div class="hero-badge">
+        <span class="hero-badge-icon"><svg><use href="#icon-scissors"/></svg></span>
+        <div>
+          <strong>Onboard Master Stylist &amp; Tailor</strong>
+          <small>Personalised fitting &amp; styling, at your convenience</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TWO WAYS ============ -->
+<section class="section experiences">
+  <div class="container">
+    <p class="kicker center">Two Legendary Ways to Experience Our Atelier</p>
+    <h2 class="center">Whether you prefer digital ease or the tactile<br>luxury of in-person styling</h2>
+
+    <div class="experience-grid">
+      <div class="experience-card">
+        <span class="experience-tag">Discerning Choice</span>
+        <span class="experience-icon"><svg><use href="#icon-monitor"/></svg></span>
+        <h3>Shop Online</h3>
+        <p>Explore our comprehensive virtual catalogue with detailed measurements, richly photographed fabrics and instant styling consultations from your own home.</p>
+        <ul class="check-list">
+          <li><svg><use href="#icon-check"/></svg> Nationwide home delivery with 7-day easy returns</li>
+          <li><svg><use href="#icon-check"/></svg> 1-on-1 virtual video call with a personal stylist</li>
+          <li><svg><use href="#icon-check"/></svg> Real fabric swatches &amp; authenticity provenance cards</li>
+          <li><svg><use href="#icon-check"/></svg> Hassle-free try &amp; buy at your own measurements</li>
+        </ul>
+        <a href="#collections" class="btn btn-outline btn-block">Browse Full Digital Collection &rarr;</a>
+      </div>
+
+      <div class="experience-card featured">
+        <span class="experience-tag gold">Most Loved Experience</span>
+        <span class="experience-icon"><svg><use href="#icon-van"/></svg></span>
+        <h3>Shop at Home with Mobile Boutique</h3>
+        <p>Skip the crowded market hustle and let our styling van bring an entire couture showroom to your doorstep, complete with a master tailor and fitting specialist.</p>
+        <ul class="check-list">
+          <li><svg><use href="#icon-check"/></svg> Touch &amp; examine every weave, in true natural light</li>
+          <li><svg><use href="#icon-check"/></svg> Private, made-to-order consultation with a master tailor</li>
+          <li><svg><use href="#icon-check"/></svg> Mothers, daughters &amp; sisters can shop together, in privacy</li>
+          <li><svg><use href="#icon-check"/></svg> On-site alterations, delivered back the very same evening</li>
+        </ul>
+        <a href="#reserve" class="btn btn-primary btn-block">Request a Home Visit for Your Society &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="process">
+  <div class="container">
+    <p class="kicker center">Effortless Four-Step Process</p>
+    <h2 class="center">The Atelier Comes Directly to You</h2>
+    <p class="section-sub center">Zero congestion, zero parking distress. Luxury shopping reimagined as a private, curated visit.</p>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <h3>Reserve Your Slot</h3>
+        <p>Pick your preferred visiting time and our concierge confirms your private appointment within hours.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <h3>We Curate &amp; Travel</h3>
+        <p>Our mobile boutique arrives fully stocked, curated around your occasion, preference and budget.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <h3>See. Feel. Try.</h3>
+        <p>Try on pieces in your own natural light with your master stylist guiding every fitting.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">04</span>
+        <h3>Keep What You Adore</h3>
+        <p>Pay only for what you love. Return the rest, no questions asked — it's that effortless.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE HERITAGE WEAVES ============ -->
+<section class="section collections" id="collections">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <p class="kicker">Curated Artisanal Divisions</p>
+        <h2>Signature Heritage Weaves</h2>
+      </div>
+      <a href="#collections" class="text-link">View All Signatures &rarr;</a>
+    </div>
+
+    <div class="weave-grid">
+      {CATEGORIES.map(cat => (
+        <a class="weave-tile" href={`/category/${cat.slug}/`}>
+          <img src={cat.image} alt={cat.name} />
+          <span class="weave-badge">{cat.badge}</span>
+          <h3>{cat.name}</h3>
+          <span class="weave-count">Explore Collection &rarr;</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY VISIT A STORE (dark) ============ -->
+<section class="section why-visit" id="why-visit">
+  <div class="container why-visit-inner">
+    <div class="why-visit-copy">
+      <p class="kicker light">Redefining High-Couture Retail</p>
+      <h2>Why Visit a Store When We Can Bring the Whole Store to You</h2>
+      <p>Traffic across South Delhi or Mumbai can easily consume three hours for a single boutique visit. Ahmad Emporium turns that exhausting errand into a leisurely afternoon of luxury retail, surrounded by your family, close friends and heirloom pieces.</p>
+
+      <ul class="feature-list">
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-van"/></svg></span>
+          <div><strong>Zero Traffic or Parking</strong><p>No navigating congested markets or hunting for parking. We arrive at your doorstep, on time, every time.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-family"/></svg></span>
+          <div><strong>Family Trousseau Curation</strong><p>Mothers, sisters and daughters shop together, in the comfort and privacy of your own living room.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-sun"/></svg></span>
+          <div><strong>True Natural Light Matching</strong><p>Inspect colour and embroidery under your own home's natural light, not harsh store lighting.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-scissors"/></svg></span>
+          <div><strong>On-Site Master Tailor</strong><p>Immediate pinning and measurements, with alterations delivered right back to your doorstep.</p></div>
+        </li>
+      </ul>
+
+      <a href="#reserve" class="btn btn-gold">Book Mobile Boutique for Your Residence</a>
+    </div>
+
+    <div class="why-visit-media">
+      <div class="wv-col">
+        <img class="wv-img wv-img-tall" src="/images/van-villa.png" alt="Ahmad Emporium mobile boutique van parked outside a private villa">
+        <img class="wv-img wv-img-wide" src="/images/courtyard.png" alt="Two women reviewing bridal fabrics in a heritage courtyard">
+      </div>
+      <div class="wv-col wv-col-offset">
+        <img class="wv-img wv-img-wide" src="/images/tailor-fitting.png" alt="Master tailor fitting a bridal lehenga blouse">
+        <img class="wv-img wv-img-tall" src="/images/embroidery.png" alt="Artisan hand-embroidering zardozi work">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOMER FAVOURITES ============ -->
+<section class="section favourites" id="favourites">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <p class="kicker">Artisan Highlights</p>
+        <h2>Customer Favourites &amp; Heirlooms</h2>
+      </div>
+      <div class="filter-pills">
+        <button class="pill active" data-filter="all">All Arrivals</button>
+        {CATEGORIES.map(cat => (
+          <button class="pill" data-filter={cat.slug}>{cat.name}</button>
+        ))}
+      </div>
+    </div>
+
+    <div class="product-grid">
+      {PRODUCTS.map(product => <ProductCard product={product} />)}
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVE ON WHATSAPP ============ -->
+<section class="section reserve" id="reserve">
+  <div class="container">
+    <div class="reserve-card">
+      <div class="reserve-head">
+        <p class="kicker center">Reserved &amp; Private Scheduling</p>
+        <h2 class="center">Book the Mobile Boutique on WhatsApp</h2>
+        <p class="section-sub center">Message us your locality, preferred date and the collections you'd like to see — our concierge team replies personally, usually within a few hours.</p>
+      </div>
+
+      <div class="whatsapp-cta-box">
+        <span class="whatsapp-icon-lg"><svg><use href="#icon-whatsapp"/></svg></span>
+        <a
+          class="btn btn-primary btn-lg whatsapp-btn"
+          data-product="Mobile Boutique Home Visit"
+          data-extra="Please share: your name, society/locality &amp; city, preferred date &amp; time, and which collections you'd like to see."
+          href="#"
+          target="_blank"
+          rel="noopener"
+        ><svg><use href="#icon-whatsapp"/></svg> Chat with Us on WhatsApp</a>
+        <p class="whatsapp-hint">Or call us directly at <a href="tel:+911140001234">+91 11 4000 1234</a></p>
+      </div>
+
+      <ul class="reserve-checklist">
+        <li><svg><use href="#icon-check"/></svg> Your name &amp; society / locality</li>
+        <li><svg><use href="#icon-check"/></svg> Preferred date &amp; time window</li>
+        <li><svg><use href="#icon-check"/></svg> Collections you'd like to see (bridal, saree, suits, and so on)</li>
+        <li><svg><use href="#icon-check"/></svg> Any special occasion or budget range</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <h2 class="center">Loved by Discreet Families Across India's<br>Finest Neighbourhoods</h2>
+
+    <div class="testimonial-grid">
+      <article class="testimonial-card">
+        <div class="stars"><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg></div>
+        <p>"With my daughter's wedding fast approaching, the mobile boutique was an absolute blessing. We saved so much time and never had to fight through crowded markets. Every piece felt curated just for us."</p>
+        <div class="testimonial-author">
+          <span class="avatar">SM</span>
+          <div><strong>Saniya &amp; Sunita Mehra</strong><small>South Delhi</small></div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="stars"><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg></div>
+        <p>"The authentic Lucknowi chikankari collection sold me on the mobile boutique concept. Inspecting the embroidery in our own natural light made all the difference — the pieces were exactly as promised."</p>
+        <div class="testimonial-author">
+          <span class="avatar">MS</span>
+          <div><strong>Meera Singhal</strong><small>Gurugram</small></div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="stars"><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg></div>
+        <p>"I booked the mobile boutique as a surprise for my daughter's sangeet shopping, and it exceeded every expectation. Their on-site tailor pinned alterations that fit perfectly the very first time."</p>
+        <div class="testimonial-author">
+          <span class="avatar">TK</span>
+          <div><strong>Tara Khanna</strong><small>Golf Course Road</small></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM GALLERY ============ -->
+<section class="section gallery">
+  <div class="container">
+    <p class="kicker center">Social Chronicles</p>
+    <h2 class="center">Moments from the Mobile Atelier</h2>
+    <p class="section-sub center">@ahmademporium.co</p>
+
+    <div class="gallery-grid">
+      <a href="#" class="gallery-item"><img src="/images/van-villa.png" alt="Ahmad Emporium mobile boutique van parked outside a private villa"></a>
+      <a href="#" class="gallery-item"><img src="/images/embroidery.png" alt="Close-up of hand embroidery on bridal fabric"></a>
+      <a href="#" class="gallery-item"><img src="/images/bridal-drape.png" alt="Client trying on a bridal lehenga with master tailor"></a>
+      <a href="#" class="gallery-item"><img src="/images/hero.png" alt="Stylist presenting a drape beside the mobile boutique van"></a>
+      <a href="#" class="gallery-item"><img src="/images/courtyard.png" alt="Family reviewing fabrics together in a heritage courtyard"></a>
+      <a href="#" class="gallery-item"><img src="/images/tailor-fitting.png" alt="Master tailor fitting a bridal blouse"></a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>

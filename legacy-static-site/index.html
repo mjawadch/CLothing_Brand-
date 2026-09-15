@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmad Emporium — Your Boutique. At Your Doorstep.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- sprite: reusable icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="icon-hanger" viewBox="0 0 24 24"><path d="M12 3a2 2 0 1 1 2 2c-.3 0-.5.2-.5.5v.6l7.4 4.6c1 .6 1.6 1.7 1.6 2.9V14H1.5v-.4c0-1.2.6-2.3 1.6-2.9L10.5 6.1v-.6c0-.3-.2-.5-.5-.5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M1.5 16.5h21" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="icon-van" viewBox="0 0 24 24"><path d="M2 16V7a1 1 0 0 1 1-1h11v10" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M14 10h4.5L21 13v3h-7z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><circle cx="6.5" cy="17" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="17.5" cy="17" r="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8.5 20.5h7M12 17v3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L12 17l-5.2 2.8 1-5.9-4.3-4.2 5.9-.8Z" fill="currentColor"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.6-9.5-9C.8 7.8 2.4 4 6 4c2 0 3.4 1 4.5 2.5.6.8.9 1.2 1.5 1.2s.9-.4 1.5-1.2C14.6 5 16 4 18 4c3.6 0 5.2 3.8 3.5 7-2.5 4.4-9.5 9-9.5 9Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.4 7-12a7 7 0 1 0-14 0c0 5.6 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="9" r="2.4" fill="none" stroke="currentColor" stroke-width="1.3"/></symbol>
+    <symbol id="icon-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.3" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="6" cy="18" r="2.3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M20 5 7.6 15M20 19 7.6 9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="icon-family" viewBox="0 0 24 24"><circle cx="8" cy="7" r="2.6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="16.5" cy="8.5" r="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5M14 20c0-2.6 1.8-4.5 4-4.5s4 1.9 4 4.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="icon-fb" viewBox="0 0 24 24"><path d="M14 21v-8h2.6l.4-3H14V8.2c0-.9.2-1.5 1.5-1.5H17V4.1C16.7 4 15.7 4 14.6 4c-2.3 0-3.9 1.4-3.9 4v2H8v3h2.7v8Z" fill="currentColor"/></symbol>
+    <symbol id="icon-pinterest" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-3.3 17.4c0-1 0-1.8.2-2.5l1.4-6s-.3-.7-.3-1.7c0-1.6 1-2.8 2.1-2.8 1 0 1.5.7 1.5 1.6 0 1-.6 2.5-1 3.9-.2 1.1.6 2 1.7 2 2 0 3.5-2.1 3.5-5.2 0-2.7-2-4.6-4.7-4.6-3.2 0-5.1 2.4-5.1 4.8 0 1 .3 1.6.8 2.2.2.2.2.3.1.6l-.2 1c-.1.3-.3.4-.6.2-1.3-.5-1.9-2-1.9-3.6 0-2.7 2.3-5.9 6.8-5.9 3.6 0 6 2.6 6 5.4 0 3.7-2 6.4-5 6.4-1 0-1.9-.5-2.3-1.2l-.6 2.5c-.2.9-.7 1.9-1.1 2.6A9 9 0 1 0 12 3Z" fill="currentColor"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6 3.5h3l1.5 4-2 1.6a12 12 0 0 0 6.4 6.4l1.6-2 4 1.5v3c0 1-.9 1.8-1.9 1.6C10.9 18.6 5.4 13.1 4.4 5.9 4.2 4.9 5 4 6 4Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3.5 6.5 12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M8.3 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.1.1.3 0 .5-.1.2-.2.3-.3.4l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.3.4-.2.6-.1l1.5.7c.2.1.4.2.4.4.1.2.1 1-.2 1.4s-1.4 1-2.2.9c-.8-.1-2.6-.6-4.3-2.2-1.9-1.7-2.9-3.4-3.1-3.9-.2-.5-.6-1.3-.3-2.1Z" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#hero" class="logo">
+      <span class="logo-mark">AE</span>
+      <span class="logo-text">AHMAD EMPORIUM<small>FASHION HOUSE</small></span>
+    </a>
+    <nav class="main-nav">
+      <a href="#hero" class="active">Home</a>
+      <a href="#collections">Collection</a>
+      <a href="#process">How it works</a>
+      <a href="#testimonials">Stories</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+911140001234" class="header-phone"><svg><use href="#icon-phone"/></svg> +91 11 4000 1234</a>
+      <a href="#reserve" class="btn btn-primary btn-sm">Book a Home Visit</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><svg><use href="#icon-sun"/></svg> An Exclusive Doorstep Shopping Experience</p>
+      <h1>Your Boutique.<br><em>At Your Doorstep.</em></h1>
+      <p class="hero-lead">Explore handcrafted couture in the comfort of your home. Our mobile showroom brings the finest fabrics, silhouettes and styling expertise right to your door for an immersive shopping journey.</p>
+      <div class="hero-cta">
+        <a href="#reserve" class="btn btn-primary">Book a Home Visit</a>
+        <a href="#collections" class="btn btn-outline">Explore Online Catalogue</a>
+      </div>
+      <ul class="hero-stats">
+        <li><strong>500+</strong> Happy Clients</li>
+        <li><strong>50+</strong> Cities Covered</li>
+        <li><strong>Zero</strong> Obligation Visit</li>
+      </ul>
+    </div>
+    <div class="hero-media">
+      <img src="images/hero.png" alt="Ahmad Emporium mobile boutique van with stylist presenting a drape to a client at a private residence">
+      <div class="hero-badge">
+        <span class="hero-badge-icon"><svg><use href="#icon-scissors"/></svg></span>
+        <div>
+          <strong>Onboard Master Stylist &amp; Tailor</strong>
+          <small>Personalised fitting &amp; styling, at your convenience</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TWO WAYS ============ -->
+<section class="section experiences">
+  <div class="container">
+    <p class="kicker center">Two Legendary Ways to Experience Our Atelier</p>
+    <h2 class="center">Whether you prefer digital ease or the tactile<br>luxury of in-person styling</h2>
+
+    <div class="experience-grid">
+      <div class="experience-card">
+        <span class="experience-tag">Discerning Choice</span>
+        <span class="experience-icon"><svg><use href="#icon-monitor"/></svg></span>
+        <h3>Shop Online</h3>
+        <p>Explore our comprehensive virtual catalogue with detailed measurements, richly photographed fabrics and instant styling consultations from your own home.</p>
+        <ul class="check-list">
+          <li><svg><use href="#icon-check"/></svg> Nationwide home delivery with 7-day easy returns</li>
+          <li><svg><use href="#icon-check"/></svg> 1-on-1 virtual video call with a personal stylist</li>
+          <li><svg><use href="#icon-check"/></svg> Real fabric swatches &amp; authenticity provenance cards</li>
+          <li><svg><use href="#icon-check"/></svg> Hassle-free try &amp; buy at your own measurements</li>
+        </ul>
+        <a href="#collections" class="btn btn-outline btn-block">Browse Full Digital Collection &rarr;</a>
+      </div>
+
+      <div class="experience-card featured">
+        <span class="experience-tag gold">Most Loved Experience</span>
+        <span class="experience-icon"><svg><use href="#icon-van"/></svg></span>
+        <h3>Shop at Home with Mobile Boutique</h3>
+        <p>Skip the crowded market hustle and let our styling van bring an entire couture showroom to your doorstep, complete with a master tailor and fitting specialist.</p>
+        <ul class="check-list">
+          <li><svg><use href="#icon-check"/></svg> Touch &amp; examine every weave, in true natural light</li>
+          <li><svg><use href="#icon-check"/></svg> Private, made-to-order consultation with a master tailor</li>
+          <li><svg><use href="#icon-check"/></svg> Mothers, daughters &amp; sisters can shop together, in privacy</li>
+          <li><svg><use href="#icon-check"/></svg> On-site alterations, delivered back the very same evening</li>
+        </ul>
+        <a href="#reserve" class="btn btn-primary btn-block">Request a Home Visit for Your Society &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section process" id="process">
+  <div class="container">
+    <p class="kicker center">Effortless Four-Step Process</p>
+    <h2 class="center">The Atelier Comes Directly to You</h2>
+    <p class="section-sub center">Zero congestion, zero parking distress. Luxury shopping reimagined as a private, curated visit.</p>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <h3>Reserve Your Slot</h3>
+        <p>Pick your preferred visiting time and our concierge confirms your private appointment within hours.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <h3>We Curate &amp; Travel</h3>
+        <p>Our mobile boutique arrives fully stocked, curated around your occasion, preference and budget.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <h3>See. Feel. Try.</h3>
+        <p>Try on pieces in your own natural light with your master stylist guiding every fitting.</p>
+      </div>
+      <div class="process-step">
+        <span class="process-num">04</span>
+        <h3>Keep What You Adore</h3>
+        <p>Pay only for what you love. Return the rest, no questions asked — it's that effortless.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE HERITAGE WEAVES ============ -->
+<section class="section collections" id="collections">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <p class="kicker">Curated Artisanal Divisions</p>
+        <h2>Signature Heritage Weaves</h2>
+      </div>
+      <a href="#collections" class="text-link">View All 300+ Signatures &rarr;</a>
+    </div>
+
+    <div class="weave-grid">
+      <a class="weave-tile" href="#collections">
+        <span class="swatch swatch-1"><svg><use href="#icon-hanger"/></svg></span>
+        <span class="weave-badge">Pure Handloom</span>
+        <h3>Lucknowi Chikankari Sarees</h3>
+        <span class="weave-count">180+ Pieces</span>
+      </a>
+      <a class="weave-tile" href="#collections">
+        <img src="images/bridal-drape.png" alt="Bridal lehenga fitting with master tailor">
+        <span class="weave-badge">Bridal Collection</span>
+        <h3>Handcrafted Bridal Lehengas</h3>
+        <span class="weave-count">220+ Pieces</span>
+      </a>
+      <a class="weave-tile" href="#collections">
+        <span class="swatch swatch-3"><svg><use href="#icon-hanger"/></svg></span>
+        <span class="weave-badge">Royal Heritage</span>
+        <h3>Royal Anarkali Suits</h3>
+        <span class="weave-count">140+ Pieces</span>
+      </a>
+      <a class="weave-tile" href="#collections">
+        <span class="swatch swatch-4"><svg><use href="#icon-hanger"/></svg></span>
+        <span class="weave-badge">Pure Organza</span>
+        <h3>Pure Organza &amp; Mukaish</h3>
+        <span class="weave-count">95+ Pieces</span>
+      </a>
+      <a class="weave-tile" href="#collections">
+        <span class="swatch swatch-5"><svg><use href="#icon-hanger"/></svg></span>
+        <span class="weave-badge">Festive Ready</span>
+        <h3>Gota Patti &amp; Zari Ensembles</h3>
+        <span class="weave-count">160+ Pieces</span>
+      </a>
+      <a class="weave-tile" href="#collections">
+        <span class="swatch swatch-6"><svg><use href="#icon-hanger"/></svg></span>
+        <span class="weave-badge">Parsi Heritage</span>
+        <h3>Parsi Gara &amp; Heritage Silks</h3>
+        <span class="weave-count">70+ Pieces</span>
+      </a>
+      <a class="weave-tile" href="#collections">
+        <span class="swatch swatch-7"><svg><use href="#icon-hanger"/></svg></span>
+        <span class="weave-badge">Designer Story</span>
+        <h3>Designer Kurtis &amp; Sharara</h3>
+        <span class="weave-count">210+ Pieces</span>
+      </a>
+      <a class="weave-tile" href="#collections">
+        <span class="swatch swatch-8"><svg><use href="#icon-hanger"/></svg></span>
+        <span class="weave-badge">Luxury Heritage</span>
+        <h3>Kanjivaram Luxury Sarees</h3>
+        <span class="weave-count">130+ Pieces</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY VISIT A STORE (dark) ============ -->
+<section class="section why-visit" id="why-visit">
+  <div class="container why-visit-inner">
+    <div class="why-visit-copy">
+      <p class="kicker light">Redefining High-Couture Retail</p>
+      <h2>Why Visit a Store When We Can Bring the Whole Store to You</h2>
+      <p>Traffic across South Delhi or Mumbai can easily consume three hours for a single boutique visit. Ahmad Emporium turns that exhausting errand into a leisurely afternoon of luxury retail, surrounded by your family, close friends and heirloom pieces.</p>
+
+      <ul class="feature-list">
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-van"/></svg></span>
+          <div><strong>Zero Traffic or Parking</strong><p>No navigating congested markets or hunting for parking. We arrive at your doorstep, on time, every time.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-family"/></svg></span>
+          <div><strong>Family Trousseau Curation</strong><p>Mothers, sisters and daughters shop together, in the comfort and privacy of your own living room.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-sun"/></svg></span>
+          <div><strong>True Natural Light Matching</strong><p>Inspect colour and embroidery under your own home's natural light, not harsh store lighting.</p></div>
+        </li>
+        <li>
+          <span class="feature-icon"><svg><use href="#icon-scissors"/></svg></span>
+          <div><strong>On-Site Master Tailor</strong><p>Immediate pinning and measurements, with alterations delivered right back to your doorstep.</p></div>
+        </li>
+      </ul>
+
+      <a href="#reserve" class="btn btn-gold">Book Mobile Boutique for Your Residence</a>
+    </div>
+
+    <div class="why-visit-media">
+      <div class="wv-col">
+        <img class="wv-img wv-img-tall" src="images/van-villa.png" alt="Ahmad Emporium mobile boutique van parked outside a private villa">
+        <img class="wv-img wv-img-wide" src="images/courtyard.png" alt="Two women reviewing bridal fabrics in a heritage courtyard">
+      </div>
+      <div class="wv-col wv-col-offset">
+        <img class="wv-img wv-img-wide" src="images/tailor-fitting.png" alt="Master tailor fitting a bridal lehenga blouse">
+        <img class="wv-img wv-img-tall" src="images/embroidery.png" alt="Artisan hand-embroidering zardozi work">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOMER FAVOURITES ============ -->
+<section class="section favourites" id="favourites">
+  <div class="container">
+    <div class="section-head-row">
+      <div>
+        <p class="kicker">Artisan Highlights</p>
+        <h2>Customer Favourites &amp; Heirlooms</h2>
+      </div>
+      <div class="filter-pills">
+        <button class="pill active" data-filter="all">All Arrivals</button>
+        <button class="pill" data-filter="chikankari">Chikankari</button>
+        <button class="pill" data-filter="bridal">Bridal</button>
+        <button class="pill" data-filter="casual">Casual</button>
+        <button class="pill" data-filter="gift">Gift</button>
+      </div>
+    </div>
+
+    <div class="product-grid">
+
+      <article class="product-card" data-cat="chikankari">
+        <div class="product-media swatch-1">
+          <a class="product-link" href="product.html?slug=mukaish-pure-chanderi-saree" aria-label="View Mukaish Pure Chanderi Saree">
+            <span class="product-badge">Pure Handloom Weave</span>
+            <svg class="swatch-icon"><use href="#icon-hanger"/></svg>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=mukaish-pure-chanderi-saree">Mukaish Pure Chanderi Saree</a></h3>
+          <p class="product-sub">Hand-block, silver mukaish work</p>
+          <div class="product-price"><span class="price-now">&#8377;18,500</span><span class="price-old">&#8377;22,000</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Mukaish Pure Chanderi Saree" data-price="&#8377;18,500" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="chikankari">
+        <div class="product-media swatch-2" style="background-image:url('images/bridal-drape.png')">
+          <a class="product-link" href="product.html?slug=pearl-chikankari-anarkali" aria-label="View Pearl Chikankari Anarkali">
+            <span class="product-badge new">New Arrival</span>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=pearl-chikankari-anarkali">Pearl Chikankari Anarkali</a></h3>
+          <p class="product-sub">Georgette, hand-shadow work</p>
+          <div class="product-price"><span class="price-now">&#8377;24,900</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Pearl Chikankari Anarkali" data-price="&#8377;24,900" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="bridal">
+        <div class="product-media swatch-3">
+          <a class="product-link" href="product.html?slug=midnight-wine-parsi-gara" aria-label="View Midnight Wine Parsi Gara">
+            <span class="product-badge bridal">Bridal Edit</span>
+            <svg class="swatch-icon"><use href="#icon-hanger"/></svg>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=midnight-wine-parsi-gara">Midnight Wine Parsi Gara</a></h3>
+          <p class="product-sub">Pure silk, hand-embroidered gara</p>
+          <div class="product-price"><span class="price-now">&#8377;32,000</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Midnight Wine Parsi Gara" data-price="&#8377;32,000" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="gift">
+        <div class="product-media swatch-4">
+          <a class="product-link" href="product.html?slug=rose-quartz-gota-patti-set" aria-label="View Rose Quartz Gota Patti Set">
+            <span class="product-badge rare">Rare Piece</span>
+            <svg class="swatch-icon"><use href="#icon-hanger"/></svg>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=rose-quartz-gota-patti-set">Rose Quartz Gota Patti Set</a></h3>
+          <p class="product-sub">Cotton silk, gota patti border</p>
+          <div class="product-price"><span class="price-now">&#8377;16,200</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Rose Quartz Gota Patti Set" data-price="&#8377;16,200" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="chikankari">
+        <div class="product-media swatch-5">
+          <a class="product-link" href="product.html?slug=noor-mahal-floral-chikankari" aria-label="View Noor Mahal Floral Chikankari">
+            <span class="product-badge">Chikankari Story</span>
+            <svg class="swatch-icon"><use href="#icon-hanger"/></svg>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=noor-mahal-floral-chikankari">Noor Mahal Floral Chikankari</a></h3>
+          <p class="product-sub">Mulmul cotton, pastel floral</p>
+          <div class="product-price"><span class="price-now">&#8377;21,800</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Noor Mahal Floral Chikankari" data-price="&#8377;21,800" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="bridal">
+        <div class="product-media swatch-6">
+          <a class="product-link" href="product.html?slug=shahi-zardozi-bridal-lehenga" aria-label="View Shahi Zardozi Bridal Lehenga">
+            <span class="product-badge bridal">Bridal Wear</span>
+            <svg class="swatch-icon"><use href="#icon-hanger"/></svg>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=shahi-zardozi-bridal-lehenga">Shahi Zardozi Bridal Lehenga</a></h3>
+          <p class="product-sub">Raw silk, gold zardozi work</p>
+          <div class="product-price"><span class="price-now">&#8377;68,500</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Shahi Zardozi Bridal Lehenga" data-price="&#8377;68,500" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="casual">
+        <div class="product-media swatch-7">
+          <a class="product-link" href="product.html?slug=gulbadan-emerald-kanjivaram" aria-label="View Gulbadan Emerald Kanjivaram">
+            <span class="product-badge">Kanjivaram Silk</span>
+            <svg class="swatch-icon"><use href="#icon-hanger"/></svg>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=gulbadan-emerald-kanjivaram">Gulbadan Emerald Kanjivaram</a></h3>
+          <p class="product-sub">Pure silk, temple border zari</p>
+          <div class="product-price"><span class="price-now">&#8377;34,900</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Gulbadan Emerald Kanjivaram" data-price="&#8377;34,900" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="product-card" data-cat="casual">
+        <div class="product-media swatch-8">
+          <a class="product-link" href="product.html?slug=sunehri-gota-patti-kurta" aria-label="View Sunehri Gota Patti Kurta">
+            <span class="product-badge">Festive Pick</span>
+            <svg class="swatch-icon"><use href="#icon-hanger"/></svg>
+          </a>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><svg><use href="#icon-heart"/></svg></button>
+        </div>
+        <div class="product-info">
+          <h3><a href="product.html?slug=sunehri-gota-patti-kurta">Sunehri Gota Patti Kurta</a></h3>
+          <p class="product-sub">Chanderi silk, gold gota trim</p>
+          <div class="product-price"><span class="price-now">&#8377;19,200</span></div>
+          <a class="btn btn-primary btn-block btn-sm whatsapp-btn" data-product="Sunehri Gota Patti Kurta" data-price="&#8377;19,200" href="#" target="_blank" rel="noopener"><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVE FORM ============ -->
+<section class="section reserve" id="reserve">
+  <div class="container">
+    <div class="reserve-card">
+      <div class="reserve-head">
+        <p class="kicker center">Reserved &amp; Private Scheduling</p>
+        <h2 class="center">Reserve the Mobile Boutique for Your Home</h2>
+        <p class="section-sub center">Tell us your locality and what you'd like our mobile boutique to bring along. A concierge specialist will confirm your slot shortly.</p>
+      </div>
+
+      <form class="reserve-form" id="reserveForm">
+        <div class="form-row">
+          <label>Your Full Name *<input type="text" placeholder="e.g. Ayesha Khan" required></label>
+          <label>WhatsApp Number *<input type="tel" placeholder="+91 98xxx xxxxx" required></label>
+        </div>
+        <div class="form-row">
+          <label>Society / Locality &amp; Sector *<input type="text" placeholder="e.g. Vipul Belmonte, DLF Sector 53" required></label>
+          <label>City &amp; Region *<input type="text" placeholder="Delhi NCR (South Delhi, DLF Gurugram, Noida)" required></label>
+        </div>
+        <div class="form-row">
+          <label>Preferred Date *<input type="date" required></label>
+          <label>Preferred Time Window *
+            <select required>
+              <option value="">Morning (10:00 AM &ndash; 1:00 PM)</option>
+              <option>Afternoon (1:00 PM &ndash; 4:00 PM)</option>
+              <option>Evening (4:00 PM &ndash; 7:00 PM)</option>
+            </select>
+          </label>
+        </div>
+
+        <fieldset class="form-checks">
+          <legend>Collections You Wish to See (select all that apply)</legend>
+          <label class="check"><input type="checkbox" checked> Chikankari Collection</label>
+          <label class="check"><input type="checkbox"> Heavy Bridal Trousseau</label>
+          <label class="check"><input type="checkbox"> Royal Anarkali Suits</label>
+          <label class="check"><input type="checkbox"> Organza &amp; Kota Weaves</label>
+        </fieldset>
+
+        <label class="form-full">Special Requests or Date Restrictions
+          <textarea rows="3" placeholder="Let us know occasion, budget range or any accessibility needs..."></textarea>
+        </label>
+
+        <div class="form-footer">
+          <label class="check small"><input type="checkbox" checked> 100% free — no obligation to purchase</label>
+          <button type="submit" class="btn btn-primary">Confirm Reservation &rarr;</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <h2 class="center">Loved by Discreet Families Across India's<br>Finest Neighbourhoods</h2>
+
+    <div class="testimonial-grid">
+      <article class="testimonial-card">
+        <div class="stars"><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg></div>
+        <p>"With my daughter's wedding fast approaching, the mobile boutique was an absolute blessing. We saved so much time and never had to fight through crowded markets. Every piece felt curated just for us."</p>
+        <div class="testimonial-author">
+          <span class="avatar">SM</span>
+          <div><strong>Saniya &amp; Sunita Mehra</strong><small>South Delhi</small></div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="stars"><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg></div>
+        <p>"The authentic Lucknowi chikankari collection sold me on the mobile boutique concept. Inspecting the embroidery in our own natural light made all the difference — the pieces were exactly as promised."</p>
+        <div class="testimonial-author">
+          <span class="avatar">MS</span>
+          <div><strong>Meera Singhal</strong><small>Gurugram</small></div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="stars"><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg><svg><use href="#icon-star"/></svg></div>
+        <p>"I booked the mobile boutique as a surprise for my daughter's sangeet shopping, and it exceeded every expectation. Their on-site tailor pinned alterations that fit perfectly the very first time."</p>
+        <div class="testimonial-author">
+          <span class="avatar">TK</span>
+          <div><strong>Tara Khanna</strong><small>Golf Course Road</small></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM GALLERY ============ -->
+<section class="section gallery">
+  <div class="container">
+    <p class="kicker center">Social Chronicles</p>
+    <h2 class="center">Moments from the Mobile Atelier</h2>
+    <p class="section-sub center">@ahmademporium.co</p>
+
+    <div class="gallery-grid">
+      <a href="#" class="gallery-item"><img src="images/van-villa.png" alt="Ahmad Emporium mobile boutique van parked outside a private villa"></a>
+      <a href="#" class="gallery-item"><img src="images/embroidery.png" alt="Close-up of hand embroidery on bridal fabric"></a>
+      <a href="#" class="gallery-item"><img src="images/bridal-drape.png" alt="Client trying on a bridal lehenga with master tailor"></a>
+      <a href="#" class="gallery-item"><img src="images/hero.png" alt="Stylist presenting a drape beside the mobile boutique van"></a>
+      <a href="#" class="gallery-item"><img src="images/courtyard.png" alt="Family reviewing fabrics together in a heritage courtyard"></a>
+      <a href="#" class="gallery-item"><img src="images/tailor-fitting.png" alt="Master tailor fitting a bridal blouse"></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo">
+        <span class="logo-mark light">AE</span>
+        <span class="logo-text light">AHMAD EMPORIUM<small>FASHION HOUSE</small></span>
+      </a>
+      <p>An exclusive doorstep couture experience — handcrafted weaves, bridal trousseaus and heirloom silks brought straight to your home.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg><use href="#icon-fb"/></svg></a>
+        <a href="#" aria-label="Pinterest"><svg><use href="#icon-pinterest"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Experience</h4>
+      <a href="#reserve">Book Mobile Boutique</a>
+      <a href="#collections">Shop Online</a>
+      <a href="#process">How It Works</a>
+      <a href="#reserve">Reserve a Slot</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Artisanal Craft</h4>
+      <a href="#collections">Chikankari Sarees</a>
+      <a href="#collections">Bridal Lehengas</a>
+      <a href="#collections">Anarkali Suits</a>
+      <a href="#collections">Kanjivaram Sarees</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Service Promise</h4>
+      <a href="#why-visit">Zero Traffic Shopping</a>
+      <a href="#why-visit">On-Site Master Tailor</a>
+      <a href="#why-visit">7-Day Easy Returns</a>
+      <a href="#why-visit">Family-Safe Private Visits</a>
+    </div>
+
+    <div class="footer-col footer-contact">
+      <h4>Reach Us</h4>
+      <p><svg><use href="#icon-pin"/></svg> Khan Market, New Delhi, 110003</p>
+      <p><svg><use href="#icon-phone"/></svg> +91 11 4000 1234</p>
+      <p><svg><use href="#icon-mail"/></svg> concierge@ahmademporium.co</p>
+      <form class="newsletter" onsubmit="return false;">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Join</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ahmad Emporium. All Rights Reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
+
+<script src="js/whatsapp.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
