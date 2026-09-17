@@ -1,6 +1,5 @@
-/* Builds wa.me links for every ".whatsapp-btn" on the page.
-   TODO: replace WHATSAPP_NUMBER with the real business number (country code + number, digits only, no + or spaces). */
-const WHATSAPP_NUMBER = '919876543210';
+/* Builds wa.me links for every ".whatsapp-btn" on the page. */
+const WHATSAPP_NUMBER = '923019680037';
 
 export function buildWhatsAppLink(productName, price, extra) {
   let text = `Hi Ahmad Emporium! I'm interested in the *${productName}*`;

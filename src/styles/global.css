@@ -134,16 +134,11 @@ h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); max-width: 680px; }
 }
 .logo { display: flex; align-items: center; gap: 12px; }
 .logo-mark {
-  width: 42px; height: 42px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--maroon);
-  font-size: 1.05rem;
+  width: 46px; height: 46px;
+  object-fit: contain;
   flex-shrink: 0;
 }
-.logo-mark.light { color: var(--gold-light); border-color: var(--gold-light); }
+.logo-mark-lg { width: 64px; height: 64px; }
 .logo-text {
   display: flex; flex-direction: column;
   font-size: 1.05rem;
