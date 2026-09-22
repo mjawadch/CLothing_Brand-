@@ -1,5 +1,7 @@
 // Shared catalogue used by the homepage, /category/[slug]/ archive pages, and /product/[slug]/ pages.
 
+import { CHIKANKARI_CATEGORY, CHIKANKARI_PRODUCTS } from './chikankari-products.js';
+
 export const CATEGORIES = [
   {
     slug: 'lehenga',
@@ -43,9 +45,11 @@ export const CATEGORIES = [
     badge: 'Pashmina & Wool',
     blurb: 'Pashmina and wool shawls, hand-embroidered for elegant cold-weather layering.',
   },
+  CHIKANKARI_CATEGORY,
 ];
 
 export const PRODUCTS = [
+  ...CHIKANKARI_PRODUCTS,
   {
     slug: 'mukaish-pure-chanderi-saree',
     name: 'Mukaish Pure Chanderi Saree',
@@ -182,6 +186,22 @@ export const PRODUCTS = [
     details: { Fabric: 'Chanderi silk', Work: 'Hand gota patti trim', Length: 'Kurta, pants & dupatta set', Blouse: 'N/A — stitched kurta, sizes XS–XL', Occasion: 'Festive day functions, mehendi' },
     highlights: ['Hand-applied gold gota patti trim', 'Lightweight Chanderi silk, all-day comfort', 'Stitched — available in your exact size', 'Complimentary alterations on a home visit'],
   },
+];
+
+// Homepage "Customer Favourites" only shows a curated pick, not the full catalogue —
+// the full per-category list lives on /category/[slug]/.
+const FEATURED_CHIKANKARI_SLUGS = [
+  'black-mukaish-chikankari-suit',
+  'ivory-floral-mirror-work-chikankari-suit',
+  'peach-and-soft-brown-chikankari-suit',
+  'olive-green-chikankari-suit',
+  'multicolour-pastel-paisley-vine-chikankari-suit',
+  'white-mukaish-chikankari-suit',
+];
+
+export const FEATURED_PRODUCTS = [
+  ...PRODUCTS.filter(p => p.categorySlug !== 'lucknowi-chikankari'),
+  ...PRODUCTS.filter(p => FEATURED_CHIKANKARI_SLUGS.includes(p.slug)),
 ];
 
 export function getProductBySlug(slug) {

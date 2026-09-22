@@ -1,4 +1,15 @@
 function init() {
+  // Gallery thumbnail switching
+  const mainImage = document.getElementById('pdMainImage');
+  const thumbs = document.querySelectorAll('.pd-thumb');
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      if (mainImage && thumb.dataset.src) mainImage.src = thumb.dataset.src;
+      thumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    });
+  });
+
   // Tab switching
   const tabBtns = document.querySelectorAll('.pd-tab-btn');
   const tabPanels = document.querySelectorAll('.pd-tab-panel');

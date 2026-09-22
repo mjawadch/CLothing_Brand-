@@ -12,9 +12,7 @@ export function getStaticPaths() {
 
 const { product } = Astro.props;
 const related = getRelatedProducts(product, 4);
-const mainMediaStyle = product.image
-  ? `background-image:url('${product.image}');background-size:cover;background-position:center;`
-  : undefined;
+const gallery = (product.images && product.images.length) ? product.images : (product.image ? [product.image] : []);
 ---
 <BaseLayout title={`${product.name} — Ahmad Emporium`} description={product.tagline}>
 
@@ -28,9 +26,20 @@ const mainMediaStyle = product.image
     <div class="container">
       <div class="pd-layout">
         <div class="pd-gallery">
-          <div class={`pd-gallery-main ${product.swatch}`} style={mainMediaStyle}>
-            {!product.image && <svg class="swatch-icon"><use href="#icon-hanger"/></svg>}
+          <div class={`pd-gallery-main ${product.swatch}`}>
+            {gallery.length > 0
+              ? <img id="pdMainImage" src={gallery[0]} alt={product.name} />
+              : <svg class="swatch-icon"><use href="#icon-hanger"/></svg>}
           </div>
+          {gallery.length > 1 && (
+            <div class="pd-gallery-thumbs">
+              {gallery.map((src, i) => (
+                <button class={`pd-thumb ${i === 0 ? 'active' : ''}`} data-src={src} aria-label={`View photo ${i + 1} of ${product.name}`}>
+                  <img src={src} alt="" loading="lazy" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         <div class="pd-info">
