@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
-import { PRODUCTS, CATEGORIES } from '../data/products.js';
+import { CATEGORIES, FEATURED_PRODUCTS } from '../data/products.js';
 ---
 <BaseLayout title="Ahmad Emporium — Your Boutique. At Your Doorstep.">
 
@@ -189,7 +189,11 @@ import { PRODUCTS, CATEGORIES } from '../data/products.js';
     </div>
 
     <div class="product-grid">
-      {PRODUCTS.map(product => <ProductCard product={product} />)}
+      {FEATURED_PRODUCTS.map(product => <ProductCard product={product} />)}
+    </div>
+
+    <div class="favourites-more">
+      <a href="#collections" class="btn btn-outline">View Full Collection</a>
     </div>
   </div>
 </section>
