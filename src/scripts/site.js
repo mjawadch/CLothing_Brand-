@@ -13,6 +13,34 @@ function init() {
     });
   }
 
+  // Keep the catalogue navigation as one exclusive dropdown group.
+  const navDropdowns = document.querySelectorAll('.nav-dropdown');
+  navDropdowns.forEach(dropdown => {
+    dropdown.addEventListener('toggle', () => {
+      if (!dropdown.open) return;
+      navDropdowns.forEach(other => {
+        if (other !== dropdown) other.open = false;
+      });
+    });
+  });
+
+  // Header collection search
+  const searchToggle = document.querySelector('.search-toggle');
+  const headerSearch = document.querySelector('.header-search');
+  const searchInput = document.getElementById('headerSearchInput');
+  const searchClose = document.querySelector('.search-close');
+  const setSearchOpen = (open) => {
+    if (!searchToggle || !headerSearch) return;
+    headerSearch.hidden = !open;
+    searchToggle.setAttribute('aria-expanded', String(open));
+    if (open) searchInput?.focus();
+  };
+  searchToggle?.addEventListener('click', () => setSearchOpen(headerSearch?.hidden));
+  searchClose?.addEventListener('click', () => setSearchOpen(false));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && headerSearch && !headerSearch.hidden) setSearchOpen(false);
+  });
+
   // Product filter pills (homepage only)
   const pills = document.querySelectorAll('.pill');
   const productCards = document.querySelectorAll('.product-card');
