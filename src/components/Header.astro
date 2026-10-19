@@ -6,16 +6,63 @@
       <img src="/images/logo-icon.png" alt="Ahmad Emporium" class="logo-mark" />
       <span class="logo-text">AHMAD EMPORIUM<small>FASHION HOUSE</small></span>
     </a>
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Primary navigation">
       <a href="/#hero">Home</a>
-      <a href="/#collections">Collection</a>
-      <a href="/#process">How it works</a>
-      <a href="/#testimonials">Stories</a>
+      <details class="nav-dropdown">
+        <summary>Lehengas</summary>
+        <div class="dropdown-menu">
+          <a href="/category/lehenga/">All Lehengas</a>
+          <a href="/category/lehenga/">Bridal Lehengas</a>
+          <a href="/category/lehenga/">Party Wear Lehengas</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Sarees</summary>
+        <div class="dropdown-menu">
+          <a href="/category/saree/">All Sarees</a>
+          <a href="/category/lucknowi-chikankari/">Chikankari Sarees</a>
+          <a href="/search/?q=parsi">Parsi Gara Sarees</a>
+          <a href="/search/?q=silk">Kumbakonam Silk Sarees</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Anarkali Suits</summary>
+        <div class="dropdown-menu">
+          <a href="/category/anarkali-peshwas/">All Anarkali Suits</a>
+          <a href="/category/anarkali-peshwas/">Anarkali &amp; Peshwas</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Straight Suits</summary>
+        <div class="dropdown-menu">
+          <a href="/category/suits/">All Straight Suits</a>
+          <a href="/search/?q=chanderi">Chanderi Suits</a>
+          <a href="/search/?q=festive">Festive Suits</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>Dupattas</summary>
+        <div class="dropdown-menu">
+          <a href="/category/dupattas/">All Dupattas</a>
+          <a href="/search/?q=chiffon">Chiffon Dupattas</a>
+          <a href="/search/?q=dupatta">Bridal Dupattas</a>
+        </div>
+      </details>
     </nav>
     <div class="header-actions">
-      <a href="tel:+923019680037" class="header-phone"><svg><use href="#icon-phone"/></svg> +92 301 9680037</a>
-      <a href="/#reserve" class="btn btn-primary btn-sm">Book a Home Visit</a>
+      <button class="search-toggle" type="button" aria-label="Search the collection" aria-controls="headerSearch" aria-expanded="false">
+        <svg aria-hidden="true"><use href="#icon-search"/></svg>
+      </button>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
     </div>
   </div>
+  <form id="headerSearch" class="header-search" action="/search/" method="get" role="search" hidden>
+    <div class="container header-search-inner">
+      <label class="sr-only" for="headerSearchInput">Search the collection</label>
+      <svg aria-hidden="true"><use href="#icon-search"/></svg>
+      <input id="headerSearchInput" name="q" type="search" placeholder="Search our collection" autocomplete="off" />
+      <button class="search-submit" type="submit">Search</button>
+      <button class="search-close" type="button" aria-label="Close search">&times;</button>
+    </div>
+  </form>
 </header>
