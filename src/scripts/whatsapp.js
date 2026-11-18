@@ -1,5 +1,5 @@
 /* Builds wa.me links for every ".whatsapp-btn" on the page. */
-const WHATSAPP_NUMBER = '923019680037';
+const WHATSAPP_NUMBER = '923013339120';
 
 export function buildWhatsAppLink(productName, price, extra) {
   let text = `Hi Ahmad Emporium! I'm interested in the *${productName}*`;
