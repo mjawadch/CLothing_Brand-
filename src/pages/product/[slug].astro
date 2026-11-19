@@ -48,21 +48,16 @@ const gallery = (product.images && product.images.length) ? product.images : (pr
           <div class="pd-badge-row">
             <span class={`product-badge ${product.badgeClass || ''}`}>{product.badge}</span>
           </div>
-          <div class="pd-price">
-            <span class="price-now">{product.priceNow}</span>
-            {product.priceOld && <span class="price-old">{product.priceOld}</span>}
-          </div>
           <p class="pd-tagline">{product.tagline}</p>
 
           <div class="pd-cta">
             <a
               class="btn btn-primary btn-lg whatsapp-btn"
               data-product={product.name}
-              data-price={product.priceNow}
               href="#"
               target="_blank"
               rel="noopener"
-            ><svg><use href="#icon-whatsapp"/></svg> Contact on WhatsApp</a>
+            ><svg><use href="#icon-whatsapp"/></svg> Request For Price</a>
             <a href="/#reserve" class="pd-visit-link">Prefer to see it in person? Book a home visit &rarr;</a>
           </div>
 
@@ -81,20 +76,16 @@ const gallery = (product.images && product.images.length) ? product.images : (pr
           </table>
           {product.variants?.length > 1 && (
             <div class="pd-variants">
-              <h2>Options &amp; Pricing</h2>
+              <h2>Options &amp; Availability</h2>
               <div class="pd-variants-scroll">
                 <table class="pd-meta-table">
                   <thead>
-                    <tr><th>Option</th><th>Price</th><th>Availability</th></tr>
+                    <tr><th>Option</th><th>Availability</th></tr>
                   </thead>
                   <tbody>
                     {product.variants.map(variant => (
                       <tr>
                         <td>{variant.title}{variant.sku && <small class="pd-variant-sku">SKU: {variant.sku}</small>}</td>
-                        <td>
-                          {variant.price}
-                          {variant.compareAtPrice && <small class="pd-variant-old-price">{variant.compareAtPrice}</small>}
-                        </td>
                         <td>{variant.available ? 'In stock' : 'Unavailable'}</td>
                       </tr>
                     ))}
@@ -108,24 +99,21 @@ const gallery = (product.images && product.images.length) ? product.images : (pr
               {product.tags.map(tag => <span>{tag}</span>)}
             </div>
           )}
-          {product.sourceUrl && (
-            <p class="pd-source-link"><a href={product.sourceUrl} target="_blank" rel="noopener noreferrer">View original product listing at Dress365days</a></p>
-          )}
         </div>
       </div>
 
       <div class="pd-tabs">
-        <div class="pd-tab-nav">
-          <button class="pd-tab-btn active" data-tab="tabDescription">Description</button>
-          <button class="pd-tab-btn" data-tab="tabHighlights">Highlights</button>
-          <button class="pd-tab-btn" data-tab="tabDelivery">Delivery &amp; Visits</button>
+        <div class="pd-tab-nav" role="tablist" aria-label="Product information">
+          <button id="tabDescriptionButton" class="pd-tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="tabDescription" tabindex="0" data-tab="tabDescription">Description</button>
+          <button id="tabHighlightsButton" class="pd-tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tabHighlights" tabindex="-1" data-tab="tabHighlights">Highlights</button>
+          <button id="tabDeliveryButton" class="pd-tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tabDelivery" tabindex="-1" data-tab="tabDelivery">Delivery &amp; Visits</button>
         </div>
 
-        <div class="pd-tab-panel active" id="tabDescription">
+        <div class="pd-tab-panel active" id="tabDescription" role="tabpanel" aria-labelledby="tabDescriptionButton" tabindex="0">
           <p>{product.description}</p>
         </div>
 
-        <div class="pd-tab-panel" id="tabHighlights">
+        <div class="pd-tab-panel" id="tabHighlights" role="tabpanel" aria-labelledby="tabHighlightsButton" tabindex="0" hidden>
           <ul class="pd-highlights">
             {product.highlights.map(h => (
               <li><svg><use href="#icon-check"/></svg> {h}</li>
@@ -133,7 +121,7 @@ const gallery = (product.images && product.images.length) ? product.images : (pr
           </ul>
         </div>
 
-        <div class="pd-tab-panel" id="tabDelivery">
+        <div class="pd-tab-panel" id="tabDelivery" role="tabpanel" aria-labelledby="tabDeliveryButton" tabindex="0" hidden>
           <p>We don't run an online checkout — every piece is confirmed personally over WhatsApp so we can check size, occasion and any customisation before it leaves our atelier.</p>
           <p>Prefer to see it in person? Reserve our mobile boutique and we'll bring this piece (and similar options in your size) directly to your home, along with our on-site master tailor for a same-visit fitting.</p>
         </div>

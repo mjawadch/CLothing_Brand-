@@ -1,15 +1,16 @@
 {
   "name": "ahmad-emporium",
-  "type": "module",
-  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "import:dress365": "node scripts/import-dress365-catalog.mjs"
+    "import:catalog": "node ./scripts/import-catalog.mjs",
+    "optimize:images": "node ./scripts/optimize-product-images.mjs"
   },
   "dependencies": {
-    "astro": "^4.16.0"
+    "astro": "6.4.8",
+    "sharp": "^0.35.5"
   }
 }
